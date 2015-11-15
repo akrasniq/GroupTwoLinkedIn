@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+<h:head>
+	<title>Log in</title>
+	<ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+</h:head>
+<h:body>
+	<h:form id="userWall">
+		<ace:panel header="Welcome to Linked in - #{userWall.user.firstName}" >
+
+			<ace:messages id="allMsgs" initEffect="highlight" />
+			
+			<h:outputText value="Feed 1"></h:outputText>
+			<hr/>
+			<h:outputText value="Feed 2"></h:outputText>
+			<hr/>
+			<h:outputText value="Feed 3"></h:outputText>
+			<hr/>
+			<h:outputText value="Feed 4"></h:outputText>
+			<hr/>
+		</ace:panel>
+		
+		<ace:panel header="Experience" >
+			<h:outputText id="experienceList" value="#{userWall.getExperience()}"></h:outputText>
+			<ace:textEntry id="experienceText" value="#{userWall.newExerience}" />
+			<ace:pushButton id="addExperience" value="Add Experience" action="#{userWall.addExperience()}" >
+				<f:ajax execute="@this" render="experienceList"></f:ajax>
+			</ace:pushButton>
+		</ace:panel>
+		
+		<ace:panel header="Skills" >
+			<h:outputText id="skillList" value="#{userWall.getSkills()}"></h:outputText>
+			<ace:textEntry id="skillText" value="#{userWall.newSkill}" />
+			<ace:pushButton id="addSkill" value="Add Skill" action="#{userWall.addSkill()}" >
+				<f:ajax execute="@this" render="skillList"></f:ajax>
+			</ace:pushButton>
+			
+		</ace:panel>
+		
+		<ace:panel header="Education" >		
+			<h:outputText id="educationList" value="#{userWall.getEducation()}"></h:outputText>
+			<ace:textEntry id="educationText" value="#{userWall.newEducation}" />
+			<ace:pushButton id="addEducation" value="Add Education" action="#{userWall.addEducation()}" >
+				<f:ajax execute="@this" render="educationList"></f:ajax>
+			</ace:pushButton>
+		
+		</ace:panel>
+				
+		<ace:panel header="Groups" >
+			<h:outputText id="addGroupsList" value="#{userWall.getGroups()}"></h:outputText>
+			<ace:textEntry id="groupText" value="#{userWall.newGroup}" />
+			<ace:pushButton id="addGroup" value="Add Group" action="#{userWall.addGroup()}" >
+				<f:ajax execute="@this" render="addGroupsList"></f:ajax>
+			</ace:pushButton>
+			
+		</ace:panel>		
+				
+		<ace:panel header="Following" >
+			<h:outputText id="addFollowingList" value="#{userWall.getFollowing()}"></h:outputText>
+			<ace:textEntry id="followingText" value="#{userWall.newFollowing}" />
+			<ace:pushButton id="addFollowing" value="Add Following" action="#{userWall.addFollowing()}" >
+				<f:ajax execute="@this" render="addFollowingList"></f:ajax>
+			</ace:pushButton>
+		</ace:panel>		
+				
+		
+
+
+	</h:form>
+
+</h:body>
+</html>

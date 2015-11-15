@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+<h:head>
+	<title>Log in</title>
+	<ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+</h:head>
+<h:body>
+	<h:form id="logIn">
+		<ace:panel header="Linked in - Group 2"
+			style="position:fixed; top: 50%; left: 50%; width:30em; height:18em; margin-top: -9em; margin-left: -15em;  border: 1px solid #ccc;">
+
+			<ace:messages id="allMsgs" initEffect="highlight" />
+
+			<h:panelGrid columns="2">
+
+				<h:outputLabel value="Email Address"/>
+				<ace:textEntry id="emailAddress" value="#{logInBean.u.emailAddress}"
+					requiredMessage="*Email is required"
+					labelPosition="inField" required="true" indicatorPosition="right">
+				</ace:textEntry>
+				<!-- <ace:message id="emailMessage" for="emailAddress" /> -->
+
+				<h:outputLabel value="Password"/>
+				<ice:inputSecret id="password" value="#{logInBean.u.password}"
+					label="Password" requiredMessage="*Password is required"
+					labelPosition="inField" required="true" indicatorPosition="right"
+					>
+
+				</ice:inputSecret>
+				<!-- <ace:message id="passwordMessage" for="password" /> -->
+
+				<h:panelGrid columns="2">
+					<ace:pushButton id="submitButton" value="Sign In"
+						action="#{logInBean.executeLogIn}" />
+
+					<ace:pushButton immediate="true" id="show" value="Sign Up"
+						onclick="dialogWid.show();" type="button" />
+					<ace:ajax event="click" render="logIn:dialog" execute="@all" />
+				</h:panelGrid>
+			</h:panelGrid>
+
+		</ace:panel>
+
+	</h:form>
+
+
+	<ace:dialog id="dialog" widgetVar="dialogWid" binding="#{dialog}"
+		header="Create New User" closable="true" modal="true"
+		draggable="false" width="400">
+
+		<h:form id="anotherForm">
+
+			<h:panelGrid columns="2" width="100%">
+
+				<h:outputLabel id="firstNameLabel" for="firstNameInputField"
+					value="First Name:" />
+				<ace:textEntry id="firstNameInputField"
+					value="#{logInBean.newUser.firstName}" />
+
+				<h:outputLabel id="lastNameLabel" for="lastNameInputField"
+					value="Last Name:" />
+				<ace:textEntry id="lastNameInputField"
+					value="#{logInBean.newUser.lastName}" />
+
+				<h:outputLabel id="emailLabel" for="emailField" value="email:" />
+				<ace:textEntry id="emailInputField"
+					value="#{logInBean.newUser.emailAddress}" />
+
+				<h:outputLabel id="passLabel" for="passField" value="Password:" />
+				<ice:inputSecret id="passInputField"
+					value="#{logInBean.newUser.password}" />
+
+			</h:panelGrid>
+
+			<h:panelGrid columns="1" width="100%" style="text-align: center;">
+
+				<h:commandButton style="float:right;" value="Save"
+					actionListener="#{logInBean.createNewUser}"
+					onclick="dialogWid.hide();" />
+
+			</h:panelGrid>
+
+
+		</h:form>
+	</ace:dialog>
+
+
+
+</h:body>
+</html>

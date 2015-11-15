@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14468386488420" configfile="/LinkedInGroupTwo/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf14468388932721" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14468388932722" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/userWall.xhtml" id="pf14468388932723" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14468388932722" path="/pages/userWall.xhtml"/>
+  <links id="pf14468388932722" target="pf14468388932723" source="pf14468388932721" outcome="SUCCESS" redirect="true"/>
+</pageflow:Pageflow>
