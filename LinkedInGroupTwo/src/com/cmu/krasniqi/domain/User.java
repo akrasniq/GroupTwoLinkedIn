@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+//User Class
 public class User implements Serializable{
 
 	private String firstName;
