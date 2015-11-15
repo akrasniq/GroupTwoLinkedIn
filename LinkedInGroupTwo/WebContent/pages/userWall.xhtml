@@ -13,64 +13,107 @@
 </h:head>
 <h:body>
 	<h:form id="userWall">
-		<ace:panel header="Welcome to Linked in - #{userWall.user.firstName}" >
+		<ace:panel header="Welcome to Linked in - #{userWall.user.firstName}">
 
 			<ace:messages id="allMsgs" initEffect="highlight" />
-			
+
+			<f:facet name="options">
+				<ace:menu id="menu">
+					<ace:menuItem value="Log Out" action="#{userWall.logOut()}" />
+				</ace:menu>
+			</f:facet>
+
 			<h:outputText value="Feed 1"></h:outputText>
-			<hr/>
+			<hr />
 			<h:outputText value="Feed 2"></h:outputText>
-			<hr/>
+			<hr />
 			<h:outputText value="Feed 3"></h:outputText>
-			<hr/>
+			<hr />
 			<h:outputText value="Feed 4"></h:outputText>
-			<hr/>
+			<hr />
 		</ace:panel>
-		
-		<ace:panel header="Experience" >
+
+		<ace:panel header="Experience">
 			<h:outputText id="experienceList" value="#{userWall.getExperience()}"></h:outputText>
 			<ace:textEntry id="experienceText" value="#{userWall.newExerience}" />
-			<ace:pushButton id="addExperience" value="Add Experience" action="#{userWall.addExperience()}" >
-				<f:ajax execute="@this" render="experienceList"></f:ajax>
-			</ace:pushButton>
+			<h:panelGrid columns="2">
+				<ace:pushButton id="addExperience" value="Add Experience"
+					action="#{userWall.addExperience()}">
+					<f:ajax execute="@this" render="experienceList"></f:ajax>
+				</ace:pushButton>
+				<ace:pushButton id="delExperience" value="Remove Experience"
+					action="#{userWall.removeExperience()}">
+					<f:ajax execute="@this" render="experienceList"></f:ajax>
+				</ace:pushButton>
+			</h:panelGrid>
 		</ace:panel>
-		
-		<ace:panel header="Skills" >
+
+
+		<ace:panel header="Skills">
 			<h:outputText id="skillList" value="#{userWall.getSkills()}"></h:outputText>
 			<ace:textEntry id="skillText" value="#{userWall.newSkill}" />
-			<ace:pushButton id="addSkill" value="Add Skill" action="#{userWall.addSkill()}" >
-				<f:ajax execute="@this" render="skillList"></f:ajax>
-			</ace:pushButton>
-			
+			<h:panelGrid columns="2">
+				<ace:pushButton id="addSkill" value="Add Skill"
+					action="#{userWall.addSkill()}">
+					<f:ajax execute="@this" render="skillList"></f:ajax>
+				</ace:pushButton>
+				<ace:pushButton id="delSkill" value="Remove Skill"
+					action="#{userWall.removeSkill()}">
+					<f:ajax execute="@this" render="skillList"></f:ajax>
+				</ace:pushButton>
+			</h:panelGrid>
+
 		</ace:panel>
-		
-		<ace:panel header="Education" >		
+
+		<ace:panel header="Education">
 			<h:outputText id="educationList" value="#{userWall.getEducation()}"></h:outputText>
 			<ace:textEntry id="educationText" value="#{userWall.newEducation}" />
-			<ace:pushButton id="addEducation" value="Add Education" action="#{userWall.addEducation()}" >
-				<f:ajax execute="@this" render="educationList"></f:ajax>
-			</ace:pushButton>
-		
+			<h:panelGrid columns="2">
+				<ace:pushButton id="addEducation" value="Add Education"
+					action="#{userWall.addEducation()}">
+					<f:ajax execute="@this" render="educationList"></f:ajax>
+				</ace:pushButton>
+				<ace:pushButton id="remEducation" value="Remove Education"
+					action="#{userWall.removeEducation()}">
+					<f:ajax execute="@this" render="educationList"></f:ajax>
+				</ace:pushButton>				
+			</h:panelGrid>
+
 		</ace:panel>
-				
-		<ace:panel header="Groups" >
+
+		<ace:panel header="Groups">
 			<h:outputText id="addGroupsList" value="#{userWall.getGroups()}"></h:outputText>
 			<ace:textEntry id="groupText" value="#{userWall.newGroup}" />
-			<ace:pushButton id="addGroup" value="Add Group" action="#{userWall.addGroup()}" >
-				<f:ajax execute="@this" render="addGroupsList"></f:ajax>
-			</ace:pushButton>
-			
-		</ace:panel>		
-				
-		<ace:panel header="Following" >
-			<h:outputText id="addFollowingList" value="#{userWall.getFollowing()}"></h:outputText>
+			<h:panelGrid columns="2">
+				<ace:pushButton id="addGroup" value="Add Group"
+					action="#{userWall.addGroup()}">
+					<f:ajax execute="@this" render="addGroupsList"></f:ajax>
+				</ace:pushButton>
+				<ace:pushButton id="remGroup" value="Remove Group"
+					action="#{userWall.removeGroup()}">
+					<f:ajax execute="@this" render="addGroupsList"></f:ajax>
+				</ace:pushButton>	
+			</h:panelGrid>
+
+		</ace:panel>
+
+		<ace:panel header="Following">
+			<h:outputText id="addFollowingList"
+				value="#{userWall.getFollowing()}"></h:outputText>
 			<ace:textEntry id="followingText" value="#{userWall.newFollowing}" />
-			<ace:pushButton id="addFollowing" value="Add Following" action="#{userWall.addFollowing()}" >
-				<f:ajax execute="@this" render="addFollowingList"></f:ajax>
-			</ace:pushButton>
-		</ace:panel>		
-				
-		
+			<h:panelGrid columns="2">
+				<ace:pushButton id="addFollowing" value="Add Following"
+					action="#{userWall.addFollowing()}">
+					<f:ajax execute="@this" render="addFollowingList"></f:ajax>
+				</ace:pushButton>
+				<ace:pushButton id="remFollowing" value="Remove Following"
+					action="#{userWall.removeFollowing()}">
+					<f:ajax execute="@this" render="addFollowingList"></f:ajax>
+				</ace:pushButton>	
+			</h:panelGrid>
+		</ace:panel>
+
+
 
 
 	</h:form>
